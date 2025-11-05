@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 from pathlib import Path
-
 import keyboard
 
 class Files:
