@@ -1,8 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
+from pathlib import Path
 
 import keyboard
+
+class Files:
+    base_dir = Path(__file__).parent
+
+    icon_ico = base_dir / "icon.ico"
 
 class output:
     def oerror(self):
@@ -65,18 +71,11 @@ def execute_promt():
 
     except Exception as exc:
         output.oerror(exc)
-        '''
-        log["state"] = "normal"
-        log.tag_add("highlightline", "1.0", "end")
-        log.insert("end", f"Error: {exc}\n", "end")
-        log.tag_configure("highlightline", foreground="red", relief="raised")
-        log["state"] = "disabled"
-        '''
 
 
 root = tk.Tk()
 root.title("PyTerm")
-root.iconbitmap("icon.ico")
+root.iconbitmap(Files.icon_ico)
 
 #root.overrideredirect(True)
 root.config(bg="#B6B6B6")
