@@ -46,18 +46,16 @@ class PyTerm:
     def outputbackground(self):
         log["background"] = self
     
-    def execute(self, *file):
-        if file.exits:
-            pass
+    def execute(self):
         try:
             result = eval(self)
             if result:
-                output.oprint("result:"+result)
+                return result
             
         except Exception as exc:
-            output.oerror(exc)
+            return exc
     
-def execute_promt():
+def execute_promt(event):
     command = promt.get()
 
     log["state"] = "normal"
@@ -75,9 +73,12 @@ def execute_promt():
 root = tk.Tk()
 root.title("PyTerm")
 root.iconbitmap(Files.icon_ico)
-
-#root.overrideredirect(True)
+#all this shit is unreadable
 root.config(bg="#B6B6B6")
+
+#binds
+root.bind('<Return>', execute_promt)
+
 
 label_style = ttk.Style()
 label_style.configure("My.TLabel",
@@ -85,7 +86,6 @@ label_style.configure("My.TLabel",
                     foreground="#000000",
                     background="#B6B6B6")
 
-keyboard.add_hotkey("Enter", execute_promt)
 
 log = ScrolledText(state='disabled', background="#B6B6B6",foreground="black" ,font="{Cascadia Code} 10", bd=0)
 log.pack(fill="both")
