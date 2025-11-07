@@ -2,6 +2,10 @@ import PyInstaller.__main__
 import os
 
 rmspec = True
+if rmspec == True:
+    print(".spec file will be removed")
+else:
+    print(".spec file won't be removed")
 
 print("enter current version:")
 version = float(input())
@@ -22,6 +26,7 @@ PyInstaller.__main__.run([
 ])
 if rmspec == True:
     os.remove(f"pyterm{version}.spec")
+    print(".spec was removed")
 else:
     print(".spec wasnt removed")
 print("build end")
