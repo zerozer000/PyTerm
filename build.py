@@ -7,15 +7,10 @@ if rmspec == True:
 else:
     print(".spec file won't be removed")
 
-print("enter current version:")
+print("enter current version(float):")
 version = float(input())
-if version:
-    pass
-else:
-    print("enter valid version: float example 0.1 - 3.0")
 
 PyInstaller.__main__.run([
-    #'--log-level=WARN',
     'pyterm.py',
     f'--name=pyterm{version}',
     '--onefile',
