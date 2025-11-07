@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 from tkinter.scrolledtext import ScrolledText
 from pathlib import Path
 
@@ -71,8 +72,10 @@ def execute_promt(event):
 
 root = tk.Tk()
 root.title("PyTerm")
-root.iconbitmap(Files.icon_ico)
-#all this shit is unreadable
+try:
+    root.iconbitmap(Files.icon_ico)
+except Exception as exc:
+    messagebox.showerror(message=f"icon couldnt load: {exc}")
 root.config(bg="#B6B6B6")
 
 #binds
