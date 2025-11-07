@@ -1,3 +1,4 @@
 output/
 pytermOOP.py
-build/
+build/*
+!build/pyinstaller
