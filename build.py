@@ -22,7 +22,6 @@ PyInstaller.__main__.run([
 ])
 if rmspec == True:
     os.remove(f"pyterm{version}.spec")
-    os.removedirs(f"build/pyterm{version}")
 else:
     print(".spec wasnt removed")
 print("build end")
